@@ -1,0 +1,17 @@
+find . -name *-nic. * -type f -print
+
+find . -i name mytextfile1.txt -exec rm {} \;
+
+find /interfaces/lnk/appple/*/send -type f -mtime +7 -exec gzip {} \;
+find /interfaces/lnk/outbnd/cpfr/send -type f -name "*.csv" -mtime +7 -exec gzip {} \;
+find /interfaces/lnk/outbnd/sas/send -type f -name "*.csv" -mtime +7 -exec gzip {} \;
+find /interfaces/lnk/outbnd/cpm/send -type f -name "*.csv" -mtime +7 -exec gzip {} \;
+find /interfaces/lnk/input/inv/send -type f -name "*.csv" -mtime +7 -exec gzip {} \;
+find /interfaces/lnk/inbnd/ms360/receive -type f -name "*.csv" -mtime +7 -exec gzip {} \;
+
+du -shx * | sort -rh | head -n 10
+
+/usr/sap/P33/J02/j2ee/cluster/server0/portalActivityTraces
+
+Maintain 6 months retension and remoe old ones
+sudo find /usr/sap/P33/J02/j2ee/cluster/server0/portalActivityTraces -mtime +180 -exec ls -lrt {} \;
